@@ -34,3 +34,24 @@
 
 1. Add your [script-formatted.ps1](script-formatted.ps1) contents in between the brackets
 1. Quadruple-quote any quotes you have remaining - ex: [disable-pihole.bat](disable-pihole.bat)
+
+### My Use Case
+
+This uuid links to switch to disable my pi-hole instance for 5 minutes.
+
+https://github.com/arendruni/homebridge-pihole
+
+If I want to click a link that gets blocked, rather than logging into my Homebridge instance, I can use this .bat file.
+
+## Your Inputs
+
+Likely, you can re-use [script.ps1](script.ps1) as a base for any .bat you want.  You *only* need to change your accessory uuid (`line 25`), and the contents of the body (`lines 27:28`) to PUT.
+
+## Issues You May Encounter
+
+1. http vs https homebridge
+1. no auth at all to web UI
+1. finding your `uuid`
+1. finding an appropriate `charactersticType` / `value`
+
+[Just explore the swagger documentation!](https://github.com/oznu/homebridge-config-ui-x/wiki/API-Reference) If you're already here, you likely can figure it out :wink:
