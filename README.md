@@ -18,7 +18,7 @@
     @{"rootURL"=(Read-Host -Prompt "URL");"password"=(Read-Host -Prompt "Password" -AsSecureString);"username"=(Read-Host -Prompt "Username" -AsSecureString)} | Export-Clixml "$env:USERPROFILE\.ps\homebridge.cred" -Force
     ```
 
-1. Customize .bat files to your heart's desire!  I personally followed [this process](#My_Proof_of_Concept)
+1. Customize .bat files to your heart's desire!  I personally followed [this process](#my-proof-of-concept)
 
 ## My Proof of Concept
 
