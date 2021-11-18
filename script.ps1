@@ -9,9 +9,9 @@ $body = @{
 } | ConvertTo-Json
 
 Try {
-    $accessToken = (Invoke-RestMethod -Uri "$rootURL/api/auth/login" -Body $body -Method Post -ContentType "application/json").access_token
+    $accessToken = (Invoke-RestMethod -Uri "$rootURL/api/auth/login" -Body $body -Method Post -ContentType 'application/json').access_token
 } Catch {
-    Write-Warning 'Failed authentication'
+    Write-Warning 'Failed Authentication!'
     return
 } Finally {
     Remove-Variable username, password, body
@@ -30,7 +30,7 @@ $body = @{
 
 Try {
     Invoke-RestMethod -Uri "$rootURL/api/accessories/$uuid" -Headers $headers -Method Put -Body $body | Out-Null
-    Write-Information 'Success'
+    Write-Information 'Success!'
 } Catch {
     Write-Warning 'Failed Operation!'
 }
