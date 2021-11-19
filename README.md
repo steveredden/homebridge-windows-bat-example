@@ -40,7 +40,7 @@ No immediate intent to 'prettify' the content, just leaving it here for your fut
 
 The uuid in [script.ps1](script.ps1) links to a switch to disable my pi-hole instance for 5 minutes.
 
-https://github.com/arendruni/homebridge-pihole
+FYI: [Pi-Hole Plugin](https://github.com/arendruni/homebridge-pihole)
 
 If, in my day-to-day, I click a link that gets blocked by pi-hole, and I *really* want to get to that link, rather than logging into my Homebridge instance I *could* use this .bat file.  Will I? :man_shrugging:
 
