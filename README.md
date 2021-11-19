@@ -72,3 +72,10 @@ If you really want to, you can break it down to a single .bat file:
 1. finding an appropriate `charactersticType` / `value`
 
 [Just explore the swagger documentation!](https://github.com/oznu/homebridge-config-ui-x/wiki/API-Reference) If you're already here, you likely can figure it out :wink:
+
+## :clap: Credits :clap:
+
+[oznu](https://github.com/oznu/homebridge-config-ui-x)
+[arendruni](https://github.com/arendruni/homebridge-pihole)
+[107+ contributors](https://github.com/homebridge/homebridge/graphs/contributors)
+etc
