@@ -75,7 +75,7 @@ If you really want to, you can break it down to a single .bat file:
 
 ## :clap: Credits :clap:
 
-[oznu](https://github.com/oznu/homebridge-config-ui-x)
-[arendruni](https://github.com/arendruni/homebridge-pihole)
-[107+ contributors](https://github.com/homebridge/homebridge/graphs/contributors)
+[oznu](https://github.com/oznu/homebridge-config-ui-x) \
+[arendruni](https://github.com/arendruni/homebridge-pihole) \
+[107+ contributors](https://github.com/homebridge/homebridge/graphs/contributors) \
 etc
