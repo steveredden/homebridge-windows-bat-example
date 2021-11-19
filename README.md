@@ -23,17 +23,12 @@
 ## My Proof of Concept
 
 1. Create a script, like [script.ps1](script.ps1)
-1. Add a bunch of semi-colons to indicate line-breaks, and replace as many quotes with single-quotes as possible
-1. Save this as [script-formatted.ps1](script-formatted.ps1)
-1. Start a .bat with the following
+1. In the same directory, create a .bat with the following:
 
    ```bash
    @echo off
-   powershell.exe -noprofile -noninteractive -command "& {  }"
+   powershell.exe -noprofile -noninteractive ./script.ps1
    ```
-
-1. Add your [script-formatted.ps1](script-formatted.ps1) contents in between the brackets
-1. Quadruple-quote any quotes you have remaining - ex: [disable-pihole.bat](disable-pihole.bat)
 
 ### My Use Case
 
@@ -47,9 +42,25 @@ If I want to click a link that gets blocked, rather than logging into my Homebri
 
 Likely, you can re-use [script.ps1](script.ps1) as a base for any .bat you want.  You *only* need to change your accessory uuid (`line 25`), and the contents of the body (`lines 27:28`) to PUT.
 
+## One-Liner
+
+If you really want to, you can break it down to a single .bat file:
+
+1. Add a bunch of semi-colons to your original [script.ps1](script.ps1) to indicate line-breaks, and replace as many quotes with single-quotes as possible
+1. Save this as [script-formatted.ps1](script-formatted.ps1).  Make sure it still works!
+1. Create a .bat with the following:
+
+   ```bash
+   @echo off
+   powershell.exe -noprofile -noninteractive -command "& {  }"
+   ```
+
+1. Add the contents of the formatted script between the brackets
+1. Quadruple-quote any quotes you have remaining - ex: [disable-pihole.bat](disable-pihole.bat)
+
 ## Issues You May Encounter
 
-1. http vs https homebridge
+1. http vs https homebridge / SSL issues
 1. no auth at all to web UI
 1. finding your `uuid`
 1. finding an appropriate `charactersticType` / `value`
