@@ -1,36 +1,34 @@
 $obj = Import-Clixml "$env:USERPROFILE\.ps\homebridge.cred"
 $rootURL = $obj.rootURL
-$password = [System.Runtime.InteropServices.Marshal]::PtrToStringAuto([System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($obj.password))
-$username = [System.Runtime.InteropServices.Marshal]::PtrToStringAuto([System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($obj.username))
 
 $body = @{
-    'username' = $username
-    'password' = $password
+    "username" = [System.Runtime.InteropServices.Marshal]::PtrToStringAuto([System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($obj.username))
+    "password" = [System.Runtime.InteropServices.Marshal]::PtrToStringAuto([System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($obj.password))
 } | ConvertTo-Json
 
 Try {
-    $accessToken = (Invoke-RestMethod -Uri "$rootURL/api/auth/login" -Body $body -Method Post -ContentType 'application/json').access_token
+    $accessToken = (Invoke-RestMethod -Uri "$rootURL/api/auth/login" -Body $body -Method Post -ContentType "application/json").access_token
 } Catch {
-    Write-Warning 'Failed Authentication!'
+    Write-Warning "Failed Authentication!"
     return
 } Finally {
-    Remove-Variable username, password, body
+    Remove-Variable body  #remove the plaintext content
 }
 
 $headers = @{
-    'Authorization' = "Bearer $accessToken"
-    'Content-Type' = 'application/json'
+    "Authorization" = "Bearer $accessToken"
+    "Content-Type" = "application/json"
 }
 
-$uuid = '261507a682a8745b0dce9c963b7ddbc6b158b73b45aabae18168bc40a1900c79'
+$uuid = "261507a682a8745b0dce9c963b7ddbc6b158b73b45aabae18168bc40a1900c79"
 $body = @{
-    'characteristicType' = 'On'
-    'value' = 0
+    "characteristicType" = "On"
+    "value" = 0
 } | ConvertTo-Json
 
 Try {
     Invoke-RestMethod -Uri "$rootURL/api/accessories/$uuid" -Headers $headers -Method Put -Body $body | Out-Null
-    Write-Information 'Success!'
+    Write-Information "Success!"
 } Catch {
-    Write-Warning 'Failed Operation!'
+    Write-Warning "Failed Operation!"
 }
