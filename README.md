@@ -16,7 +16,7 @@ No immediate intent to 'prettify' the content, just leaving it here for your fut
    ```
 
 1. Create a credential file, supplying the prompts:
-   1. **URL**:  your homebridge url, including http:// or https:// - ex: `https://tanium.local`
+   1. **URL**:  your homebridge url, including http:// or https:// - ex: `https://homebridge.local`
    1. **username**:  the user you use to auth to homebridge
    1. **password**:  the password you use to auth to homebridge
 
